@@ -5,22 +5,21 @@
 #import "contact.h"
 #include "searchcontact.h"
 int main() {
+
+
     int tag = 1;
     t_d_listContact* list = createListContact();
 
     while (tag) {
-        //printf menu principal
-        //scanf de l'input
-        //switch input
+
         printf("======================================YOUR DIARY==================================\n");
         printf("1 : Create a new contact\n");
         printf("2 : Create a new appointment\n");
         printf("3 : View appointments for a contact\n");
         printf("4 : Display the list of contacts\n");
-        printf("5 : Delete an appointment\n");
-        printf("6 : Save the appointment file\n");
-        printf("7 : Get the efficiency of contact insertion\n");
-        printf("0 : Close\n");
+        printf("5 : Search for a contact\n");
+        printf("6 : Get the efficiency of contact insertion\n");
+        printf("0 : Get to the part 2 of the project and close\n");
         int option;
         do {
             printf("Enter your action as an integer :\n");
@@ -31,9 +30,8 @@ int main() {
         char* contact_name;
         switch (option) {
             case 0 :
-
-
-                    break;
+                tag = 0;
+                break;
 
             case 1 :
                 printf("\n");
@@ -62,9 +60,22 @@ int main() {
                 break;
 
             case 4 :printAllContact(list);
-            case 5 :
-            case 6 :
-            case 7 :
+            case 5 : printf("\n");
+                contact_name = scanString();
+                if (dicoSearchContact(list,contact_name)) {
+                    printf("Your contact is in the database\n");
+                }else {
+                    printf("Sorry, your contact doesn't exist in the database\n");
+                }
+                break;
+
+
+            case 6 :printf("Sorry, this functionnality is not available for now\n");
+            break;
+            case 7 :printf("Sorry, this functionnality is not available for now\n");
+            break;
+
+
 
         }
     }
@@ -78,17 +89,16 @@ int main() {
 
 
 
-    /*
-    printf("Hello World !\n");
+
+
     // creation of a list of n levels adn ordered 2^n elements
-    int n =16;
+    int n =15;
     t_d_list* liste1 = create2nList(n);
     printAllClear(liste1);
 
 
-    //display of the list
+    //to display the list clearly, run a debug of the program and enter 0;
 
-    //printf("%d", dicoSearch(liste1,9));
 
 
 
@@ -127,6 +137,6 @@ int main() {
 
     fprintf(log_file,format,level,time_lvl0, time_all_levels);
     fclose(log_file);
-*/
+
     return 0;
 }

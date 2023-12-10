@@ -22,37 +22,64 @@ t_d_listContact* createListContact() {
 
 void fillList(t_d_listContact* list_contacts) {
     // open the files filled with firstnames and surnames
+    /*
     FILE *lastnames = fopen("C:\\Users\\benma\\CLionProjects\\untitled3\\noms2008nat_txt.txt", "r");
     FILE *firstnames = fopen("C:\\Users\\benma\\CLionProjects\\untitled3\\nat2021.csv", "r");
     char line[30];
     char **list_firstname = (char **) malloc(sizeof(line));
     char **list_name = (char **) malloc(sizeof(line));
     int i = 0;
+    int compteur = 0;
+    size_t length;
+
     while (fgets(line, sizeof(line), firstnames) != NULL) {
-
-
+        length = strlen(line);
         i++;
         if (i % 100 == 0) {
-            char **temp = (char **) realloc(list_firstname, i * sizeof(line));
+            char **temp = (char **)realloc(list_firstname, i * sizeof(line));
             list_firstname = temp;
-            list_firstname[i / 100 + 1] = fgets(line, sizeof(line), firstnames);
+            if (line[length-1] == '\n') {
+                line[length-1] = '\0';
+            }
+            list_firstname[compteur] = line;
+            printf("%s\n",list_firstname[compteur]);
+
+            compteur++;
+
         }
     }
 
+
     i = 0;
+    compteur = 0;
+
+
     while (fgets(line, sizeof(line), lastnames) != NULL) {
+        length = strlen(line);
+
         i++;
         if (i % 1000 == 0) {
             char **temp = (char **) realloc(list_name, i * sizeof(line));
             list_name = temp;
+            if (line[length-1] == '\n') {
+                line[length-1] = '\0';
+            }
+            list_name[compteur] = line;
+            printf("%s\n",list_name[compteur]);
+            compteur ++;
         }
     }
-    /*
+
     int j = 0;
     while(list_firstname[j] != NULL && list_name[j] != NULL) {
-        createContact(getName(list_firstname[j],list_name[j]));
+        printf("coucou");
+        printf("%s", list_firstname[j]);
+        printf("%s", list_name[j]);
+        char* fullname = getName(list_firstname[j],list_name[j]);
+        printf("%s\n\n\n", fullname);
+        createContact(fullname);
         j++;
-        */
+     */
     //loop to create manually n contacts
     for (int j = 0; j < 3; j++) {
         t_contact* contact_test = createContact(scanString());
@@ -190,6 +217,7 @@ void addHeadContact(t_d_listContact *contactList, t_contact *contact){
 
 
 t_contact* createContact(char* string) {
+    printf("createcontact");
     // define contact and its attribute
     t_contact* contact = (t_contact*)malloc(sizeof(t_contact));
     contact->string_name = string;
@@ -212,6 +240,7 @@ t_contact* createContact(char* string) {
 
 
 char* getName(char* firstname, char* lastname) {
+    printf("%s/ / %s\n", firstname, lastname);
     // create a str surname_firstname
 
     char* string = (char*)malloc(60*sizeof(char));

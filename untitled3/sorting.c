@@ -15,9 +15,9 @@ t_d_list*  create2nList(int n) {
         }
 
         t_d_cell* cell = createCell(list_int[i], list_levels[i]);
+
         addHeadCell(list, cell);
     }
-
     return list;
 
 }
