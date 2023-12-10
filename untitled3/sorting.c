@@ -53,7 +53,6 @@ int dicoSearch(t_d_list* list, int value) {
     t_d_cell* temp = list->heads_list[i];
     while (i >= 0) {
         temp = classicSearch(temp,value,i);
-        //printf("value : %d, level : %d \n", temp->value, i);
         if (temp->value == value) {
             return 1;
         }

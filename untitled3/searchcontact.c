@@ -32,7 +32,6 @@ int dicoSearchContact(t_d_listContact * list, char* name) {
     t_contact * temp = list->heads_list[i];
 
     while (i >= 0) {
-        printf("inwhile");
 
         temp = classicSearchContact(temp,name,i);
 

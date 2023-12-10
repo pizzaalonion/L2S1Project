@@ -72,11 +72,7 @@ void fillList(t_d_listContact* list_contacts) {
 
     int j = 0;
     while(list_firstname[j] != NULL && list_name[j] != NULL) {
-        printf("coucou");
-        printf("%s", list_firstname[j]);
-        printf("%s", list_name[j]);
         char* fullname = getName(list_firstname[j],list_name[j]);
-        printf("%s\n\n\n", fullname);
         createContact(fullname);
         j++;
      */
@@ -217,7 +213,6 @@ void addHeadContact(t_d_listContact *contactList, t_contact *contact){
 
 
 t_contact* createContact(char* string) {
-    printf("createcontact");
     // define contact and its attribute
     t_contact* contact = (t_contact*)malloc(sizeof(t_contact));
     contact->string_name = string;
@@ -240,7 +235,6 @@ t_contact* createContact(char* string) {
 
 
 char* getName(char* firstname, char* lastname) {
-    printf("%s/ / %s\n", firstname, lastname);
     // create a str surname_firstname
 
     char* string = (char*)malloc(60*sizeof(char));
@@ -269,7 +263,7 @@ char* getName(char* firstname, char* lastname) {
 char* scanString() {
     // allow user to type name and surname and returns one str
     
-    printf("Enter the complete name of the patient:");
+    printf("Enter the complete name of the contact:");
     char* firstname = (char*)malloc(30*sizeof(char));
     scanf("%s", firstname);
 
@@ -310,9 +304,7 @@ void createRdv(t_contact* contact) {
     t_rdv** temp  = (t_rdv**)realloc(contact->list_rdv, contact->nb_rdv*sizeof(t_rdv*));
     temp[contact->nb_rdv] = NULL;
     contact->list_rdv = temp;
-    printf("coucou\n");
     contact->list_rdv[contact->nb_rdv] = rendezvous;
-    printf("apres");
 
     contact->nb_rdv += 1;
 

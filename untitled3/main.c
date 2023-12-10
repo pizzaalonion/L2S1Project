@@ -21,6 +21,7 @@ int main() {
         printf("6 : Get the efficiency of contact insertion\n");
         printf("0 : Get to the part 2 of the project and close\n");
         int option;
+        int found;
         do {
             printf("Enter your action as an integer :\n");
             scanf("%d", &option);
@@ -42,11 +43,18 @@ int main() {
             case 2 :
                 printf("\n");
                 contact_name = scanString();
-                contact = classicSearchContact(list->heads_list[0], contact_name,0);
-                createRdv(contact);
+                found = dicoSearchContact(list, contact_name);
+                if (found) {
+                    printf("Your contact has been found in the database, but it is currently impossible to make appointments\n");
+                }else {
+                    printf("Your contact has not been found in our databases, thus we cannot book a new appointment\n");
+
+                }
+                //createRdv(contact);
                 break;
 
             case 3 :
+                /*
                 printf("\n");
                 contact_name = scanString();
                 contact = classicSearchContact(list->heads_list[0], contact_name,0);
@@ -56,7 +64,8 @@ int main() {
                     printf("The %d/%d/%d", contact->list_rdv[i]->date->day,contact->list_rdv[i]->date->month,contact->list_rdv[i]->date->year);
                     printf(" at %dh-%dm",contact->list_rdv[i]->time->hour,contact->list_rdv[i]->time->minute);
                     printf(" for a duration of  %dh-%dm",contact->list_rdv[i]->duration->hour,contact->list_rdv[i]->duration->minute);
-                }
+                }*/
+                printf("Sorry, this functionnality is not available for now\n");
                 break;
 
             case 4 :printAllContact(list);
@@ -70,7 +79,16 @@ int main() {
                 break;
 
 
-            case 6 :printf("Sorry, this functionnality is not available for now\n");
+            case 6 :
+                contact_name = scanString();
+                startTimer();
+                    contact = classicSearchContact(list->heads_list[0], contact_name,0);
+                    stopTimer();
+                    displayTime();
+                    startTimer();
+                    dicoSearchContact(list,contact_name);
+                    stopTimer();
+                    displayTime();
             break;
             case 7 :printf("Sorry, this functionnality is not available for now\n");
             break;
