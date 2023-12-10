@@ -110,7 +110,7 @@ int main() {
 
 
     // creation of a list of n levels adn ordered 2^n elements
-    int n =15;
+    int n =10;
     t_d_list* liste1 = create2nList(n);
     printAllClear(liste1);
 
@@ -119,13 +119,13 @@ int main() {
 
 
 
-
+    /*
     FILE *log_file = fopen("C:\\Users\\benma\\CLionProjects\\untitled3\\log.txt", "a");
     char format[] = "%d\t%s\t%s\n" ;
     int level = n;
     char *time_lvl0;
     char *time_all_levels;
-
+*/
     startTimer();
     for(int i = 0; i < 10000; i++) {
 
@@ -137,7 +137,7 @@ int main() {
 
     }
     stopTimer();
-    time_lvl0 = getTimeAsString(); // timer module function
+    //time_lvl0 = getTimeAsString(); // timer module function
 
     printf("classical search time : ");
     displayTime();
@@ -150,11 +150,11 @@ int main() {
     stopTimer();
     printf("dichotomic search time : ");
 
-    time_all_levels = getTimeAsString();
+    //time_all_levels = getTimeAsString();
     displayTime();
 
-    fprintf(log_file,format,level,time_lvl0, time_all_levels);
-    fclose(log_file);
+    //fprintf(log_file,format,level,time_lvl0, time_all_levels);
+    //fclose(log_file);
 
     return 0;
 }
