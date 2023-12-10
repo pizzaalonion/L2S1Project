@@ -69,6 +69,7 @@ int main() {
                 break;
 
             case 4 :printAllContact(list);
+            break;
             case 5 : printf("\n");
                 contact_name = scanString();
                 if (dicoSearchContact(list,contact_name)) {
