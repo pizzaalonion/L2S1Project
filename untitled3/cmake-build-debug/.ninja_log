@@ -1,0 +1,12 @@
+# ninja log v5
+27	172	7234876533076616	CMakeFiles/untitled3.dir/cell.c.obj	8a7ced558423977d
+16	117	7239388103800695	CMakeFiles/untitled3.dir/list.c.obj	2078e99f38849464
+2	209	7239398010177140	CMakeFiles/untitled3.dir/main.c.obj	fee2e4a6d4cd812f
+17	105	7234724747654958	CMakeFiles/untitled3.dir/timer.c.obj	f3dd4b947f756b59
+43	138	7239388104021760	CMakeFiles/untitled3.dir/sorting.c.obj	d67cdd70757a9baf
+118	256	7239405381923646	untitled3.exe	556d78a7fe045e52
+2	117	7239405380571800	CMakeFiles/untitled3.dir/contact.c.obj	5098d926bc683e01
+54	139	7239388104021760	CMakeFiles/untitled3.dir/searchcontact.c.obj	f45cf1900bfee93d
+22	108	7239291244661077	CMakeFiles/untitled3.dir/utilitary.c.obj	a805e2ec630cf90c
+2	120	7239407092172452	CMakeFiles/untitled3.dir/contact.c.obj	5098d926bc683e01
+120	265	7239407093572799	untitled3.exe	556d78a7fe045e52
